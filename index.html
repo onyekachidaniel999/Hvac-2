@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love | Oyiza</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ===== THE LUXURY COLOR PALETTE ===== */
+    :root {
+      --pink-luxury: #FFB6C1;
+      --pink-deep: #FF69B4;
+      --soft-white: #FAFAFA;
+      --baby-blue: #E0F7FA;
+      --royal-blue: #1E88E5;
+      --gold-accent: #D4AF37;
+      --dark-romantic: #1A0B16;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      background: linear-gradient(135deg, var(--dark-romantic), #2D1124); 
+      color: var(--soft-white);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ===== CORNER FLOWERS & FLOATING BEE ANIMATION ===== */
+    .corner-flower {
+      position: fixed;
+      font-size: 45px;
+      color: var(--pink-luxury);
+      z-index: 1000;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 10px rgba(255,182,193,0.5));
+    }
+    .top-left { top: 15px; left: 15px; }
+    .top-right { top: 15px; right: 15px; }
+    .bottom-left { bottom: 15px; left: 15px; }
+    .bottom-right { bottom: 15px; right: 15px; }
+
+    .bumblebee {
+      position: fixed;
+      font-size: 24px;
+      color: #FFD700;
+      z-index: 1001;
+      pointer-events: none;
+      filter: drop-shadow(0 0 8px rgba(255,215,0,0.8));
+      animation: flyAround 18s infinite linear;
+    }
+
+    @keyframes flyAround {
+      0% { top: 15px; left: 15px; transform: scaleX(1) rotate(0deg); }
+      25% { top: 20px; left: 90%; transform: scaleX(-1) rotate(20deg); }
+      50% { top: 90%; left: 90%; transform: scaleX(-1) rotate(180deg); }
+      75% { top: 90%; left: 20px; transform: scaleX(1) rotate(200deg); }
+      100% { top: 15px; left: 15px; transform: scaleX(1) rotate(360deg); }
+    }
+
+    /* ===== AUDIO PLAYER OVERLAY ===== */
+    .audio-container {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 2000;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 182, 193, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .music-btn {
+      background: var(--pink-deep);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+    }
+    .music-btn:hover { transform: scale(1.1); }
+    .track-info { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* ===== HERO HERO LAYER ===== */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+    }
+    .hero-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(60px, 10vw, 110px);
+      color: var(--pink-luxury);
+      line-height: 1.2;
+      text-shadow: 0 0 20px rgba(255,114,180,0.4);
+      animation: romanticPulse 2.5s infinite alternate;
+    }
+    .hero-sub {
+      font-size: 13px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-top: 15px;
+      color: var(--soft-white);
+      opacity: 0.8;
+    }
+
+    /* ===== MAIN PROFILE GALLERY PLACEMENT ===== */
+    .profile-section {
+      padding: 100px 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      background: rgba(255,255,255,0.02);
+    }
+    .main-img-wrapper {
+      position: relative;
+      width: 320px;
+      height: 420px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2px solid var(--pink-luxury);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transition: transform 0.5s ease;
+    }
+    .main-img-wrapper:hover { transform: scale(1.03) rotate(1deg); }
+    .main-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .img-caption {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      color: var(--pink-luxury);
+      margin-top: 10px;
+    }
+
+    /* ===== FUN FACTS MOTION GRID ===== */
+    .fun-facts-section { padding: 100px 6%; }
+    .section-header {
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 65px;
+      color: var(--pink-luxury);
+      margin-bottom: 50px;
+    }
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .fact-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 30px 25px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+    .fact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(255,105,180,0.2);
+    }
+    
+    /* Fun dynamic tag variant styling */
+    .fact-card.white-tag { border-left: 4px solid #FFF; }
+    .fact-card.pink-tag { border-left: 4px solid var(--pink-deep); }
+    .fact-card.blue-tag { border-left: 4px solid var(--royal-blue); }
+    
+    .fact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--pink-luxury);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .fact-value {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* Fact Secondary Images Layer */
+    .facts-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .gallery-box {
+      height: 250px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .gallery-box img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ===== ULTRA BIG PLATINUM FINALE ROW ===== */
+    .finale-banner {
+      margin: 80px 6%;
+      padding: 60px 30px;
+      background: linear-gradient(135deg, rgba(255,105,180,0.15), rgba(30,136,229,0.1));
+      border-radius: 30px;
+      border: 1px solid rgba(255,182,193,0.2);
+      text-align: center;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+    }
+    .finale-text {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(38px, 6vw, 60px);
+      color: #FFF;
+      text-shadow: 0 0 15px var(--pink-deep);
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    @keyframes romanticPulse {
+      from { transform: scale(1); text-shadow: 0 0 15px rgba(255,114,180,0.3); }
+      to { transform: scale(1.02); text-shadow: 0 0 30px rgba(255,114,180,0.7); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="corner-flower top-left"><i class="fas fa-seedling"></i></div>
+  <div class="corner-flower top-right"><i class="fas fa-spa"></i></div>
+  <div class="corner-flower bottom-left"><i class="fas fa-fan"></i></div>
+  <div class="corner-flower bottom-right"><i class="fas fa-leaf"></i></div>
+
+  <div class="bumblebee"><i class="fas fa-bugs"></i></div>
+
+  <div class="audio-container">
+    <button class="music-btn" onclick="togglePlay()"><i id="play-icon" class="fas fa-play"></i></button>
+    <div class="track-info">
+      <strong>Only Me & You</strong><br>
+      <span style="opacity:0.6; font-size:9px;">Tems (Acoustic Unplugged)</span>
+    </div>
+    <audio id="bday-song" loop src="tems-only-me-and-you-acoustic.mp3"></audio>
+  </div>
+
+  <section class="hero">
+    <h1 class="hero-title">Happy Birthday<br>Oyiza</h1>
+    <p class="hero-sub">June 21 — Formatted beautifully with love by Daniel</p>
+  </section>
+
+  <section class="profile-section">
+    <div class="main-img-wrapper">
+      <img src="IMG-20260308-WA0060.jpg" alt="Oyiza - Pink Cap Look">
+    </div>
+    <div class="img-caption">The Birthday Queen herself ✨</div>
+  </section>
+
+  <section class="fun-facts-section">
+    <h2 class="section-header">Fun Facts About Oyiza</h2>
+    
+    <div class="facts-grid">
+      <div class="fact-card pink-tag">
+        <span class="fact-label">Favourite Food</span>
+        <p class="fact-value">Indomie 🍜</p>
+      </div>
+
+      <div class="fact-card white-tag">
+        <span class="fact-label">Favourite Colors</span>
+        <p class="fact-value">White, Pink, and Blue 🤍🩷💙</p>
+      </div>
+
+      <div class="fact-card blue-tag">
+        <span class="fact-label">Favourite Drink</span>
+        <p class="fact-value">Yoghurt 🥤</p>
+      </div>
+
+      <div class="fact-card pink-tag">
+        <span class="fact-label">Favourite Musician</span>
+        <p class="fact-value">Zino 🎵</p>
+      </div>
+
+      <div class="fact-card blue-tag">
+        <span class="fact-label">Classic Response to Boyfriend</span>
+        <p class="fact-value">"Nothing" 🤫</p>
+      </div>
+
+      <div class="fact-card white-tag">
+        <span class="fact-label">Favourite Hobby</span>
+        <p class="fact-value">"Rough Play" 🥊</p>
+      </div>
+
+      <div class="fact-card pink-tag">
+        <span class="fact-label">Favourite Person</span>
+        <p class="fact-value">Mummy 👑</p>
+      </div>
+
+      <div class="fact-card white-tag">
+        <span class="fact-label">Superpower</span>
+        <p class="fact-value">She can wash cloth for Africa! 🧺</p>
+      </div>
+
+      <div class="fact-card blue-tag">
+        <span class="fact-label">The Truth</span>
+        <p class="fact-value">She is a problem herself ⚠️</p>
+      </div>
+
+      <div class="fact-card pink-tag">
+        <span class="fact-label">Problem Status</span>
+        <p class="fact-value">If her problematic problems were food, Africa will never go hungry for one second! 🌍</p>
+      </div>
+
+      <div class="fact-card white-tag">
+        <span class="fact-label">Talents</span>
+        <p class="fact-value">Oyiza is very good at drawing 🎨</p>
+      </div>
+
+      <div class="fact-card blue-tag">
+        <span class="fact-label">Vitals</span>
+        <p class="fact-value">Height: 5'6 | Weight: Less than 50kg — "she no dey chop food" 😅</p>
+      </div>
+
+      <div class="fact-card pink-tag">
+        <span class="fact-label">Public Notice</span>
+        <p class="fact-value">She is a lazy girl ooo, you guys should not be deceived! 😴</p>
+      </div>
+
+      <div class="fact-card white-tag">
+        <span class="fact-label">Certified Truth</span>
+        <p class="fact-value">She is clean throughout her body, I can testify! ✨</p>
+      </div>
+
+      <div class="fact-card blue-tag">
+        <span class="fact-label">Physique</span>
+        <p class="fact-value">She has an amazing, nice body physique as a lady 🔥</p>
+      </div>
+
+      <div class="fact-card pink-tag">
+        <span class="fact-label">Secret Career</span>
+        <p class="fact-value">She dey practice witchcraft since she was born, make una fear am ooo 🧙‍♀️</p>
+      </div>
+    </div>
+
+    <div class="facts-gallery">
+      <div class="gallery-box">
+        <img src="remaining-photo1.jpg" alt="Oyiza Memory One">
+      </div>
+      <div class="gallery-box">
+        <img src="remaining-photo2.jpg" alt="Oyiza Memory Two">
+      </div>
+    </div>
+  </section>
+
+  <div class="finale-banner">
+    <h2 class="finale-text">BUT... "In all, she is the BEST girl in da whole world!" ❤️</h2>
+  </div>
+
+  <footer>
+    Made with infinite love by Daniel for Oyiza
+  </footer>
+
+  <script>
+    function togglePlay() {
+      var audio = document.getElementById("bday-song");
+      var icon = document.getElementById("play-icon");
+      if (audio.paused) {
+        audio.play();
+        icon.className = "fas fa-pause";
+      } else {
+        audio.pause();
+        icon.className = "fas fa-play";
+      }
+    }
+  </script>
+</body>
+</html>
